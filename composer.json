@@ -1,0 +1,33 @@
+{
+    "name": "mate/roles",
+    "description": "A package to extends users to have role and permissions",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mate\\Roles\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Agustin Casiva",
+            "email": "agustin@42mate.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mate\\Roles\\RolesServiceProvider"
+            ],
+            "aliases": {
+                "Roles": "Mate\\Roles\\Facades\\Roles"
+            }
+        }
+    },
+    "require": {
+
+    }
+}
