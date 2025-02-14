@@ -36,7 +36,7 @@ class UserCommand extends Command
         $user = User::findOrFail($id);
         $this->info("Updating user: {$user->id}");
         try {
-          $user->roles()->sync(array_map(fn($role) => $role->id, $dbRoles));
+          $user->roles()->sync(array_map(fn($role) => $role['id'], $dbRoles));
         } catch (\Exception $e) {
           $this->error($e);
         }
