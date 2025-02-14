@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use Mate\Roles\Models\Role;
 
 
-class PermissionsCommand extends Command
+class UserCommand extends Command
 {
     /**
      * The name and signature of the console command.

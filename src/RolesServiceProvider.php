@@ -5,6 +5,7 @@ namespace Mate\Roles;
 use Illuminate\Support\ServiceProvider;
 use Mate\Roles\Console\Commands\PermissionsCommand;
 use Mate\Roles\Console\Commands\RolesCommand;
+use Mate\Roles\Console\Commands\UserCommand;
 use Mate\Roles\Middleware\HasPermissions;
 
 class RolesServiceProvider extends ServiceProvider
@@ -34,7 +35,8 @@ class RolesServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
           $this->commands([
             PermissionsCommand::class,
-            RolesCommand::class
+            RolesCommand::class,
+            UserCommand::class
           ]);
         }
 
