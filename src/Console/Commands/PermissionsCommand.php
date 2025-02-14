@@ -39,6 +39,6 @@ class PermissionsCommand extends Command
         $user = User::findOrFail($id);
 
         $this->info("Updating user: {$user->id}");
-        $user->permissions()->sync($toAssign);
+        $user->updateUserPermissions($toAssign);
     }
 }
