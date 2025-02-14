@@ -13,7 +13,7 @@ class PermissionsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'mate:roles {userid} {--permissions=} {--roles=} {--list}';
+    protected $signature = 'mate:permissions {userid} {--permissions=} {--list}';
 
     /**
      * The console command description.
