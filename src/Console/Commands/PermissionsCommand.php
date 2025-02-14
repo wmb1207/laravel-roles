@@ -31,7 +31,7 @@ class PermissionsCommand extends Command
           array_walk(config('roles.permissions'), fn (string $permission) => $this->info($permission));
         }
 
-        $permissions = $this->option('permissions')->split(',');
+        $permissions = explode(',' , $this->option('permissions'));
 
         $toAssign = array_filter($permissions, fn ($permission) => in_array($permission, config('roles.permissions')));
 
