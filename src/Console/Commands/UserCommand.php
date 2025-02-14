@@ -31,7 +31,7 @@ class UserCommand extends Command
         $roles = explode(',' , $this->option('roles'));
         $dbRoles = Role::where('name', 'in', '$roles')->get()
           ->toArray();
-        $this-info($dbRoles);
+        $this->info($dbRoles);
         $id = intval($this->argument('userid'));
         $user = User::findOrFail($id);
         $this->info("Updating user: {$user->id}");
