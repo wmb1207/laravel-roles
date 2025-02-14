@@ -29,10 +29,11 @@ class UserCommand extends Command
     public function handle()
     {
         $roles = explode(',' , $this->option('roles'));
-        $dbRoles = Role::where('name', 'in', '$roles')->get();
+        $dbRoles = Role::where('name', 'in', '$roles')->get()
+          ->toArray();
         $id = intval($this->argument('userid'));
         $user = User::findOrFail($id);
         $this->info("Updating user: {$user->id}");
-        $user->roles()->sync(array_map(fn($role) => $role->id, $dbRoles));
+        $user->roles()->sync(array_map(fn($role) => $role->id, $dbRoles->));
     }
 }
