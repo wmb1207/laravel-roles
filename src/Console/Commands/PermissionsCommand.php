@@ -38,9 +38,7 @@ class PermissionsCommand extends Command
         $id = intval($this->argument('userid'));
         $user = User::findOrFail($id);
 
-        var_dump($user);
-
         $this->info("Updating user: {$user->id}");
-        $user->roles()->sync($toAssign);
+        $user->permissions()->sync($toAssign);
     }
 }
