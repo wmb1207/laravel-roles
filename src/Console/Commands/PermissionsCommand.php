@@ -37,7 +37,7 @@ class PermissionsCommand extends Command
 
         $user = User::findOrFail($this->argument('userid'));
 
-        $this->info("Updating user: {$user->id}, settting {join(' ', $toAssign)}");
+        $this->info("Updating user: {$user->id}, settting {implode(' ', $toAssign)}");
         $user->roles()->sync($toAssign);
     }
 }
