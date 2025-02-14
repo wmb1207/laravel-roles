@@ -29,7 +29,7 @@ class UserCommand extends Command
     public function handle()
     {
         $roles = explode(',' , $this->option('roles'));
-        $dbRoles = Role::where('name', 'in', $roles)->get()
+        $dbRoles = Role::whereIn('name', $roles)->get()
           ->toArray();
         var_dump($dbRoles);
         $id = intval($this->argument('userid'));
