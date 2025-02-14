@@ -44,7 +44,11 @@ class RolesCommand extends Command
 
         $role = Role::firstOrNew(['name' => $roleName]);
         $this->info("Updating Role: {$role->name}");
-        RolePermissions::updateMatrix([$role->id => $toAssign]);
+        try {
+          RolePermissions::updateMatrix([$role->id => $toAssign]);
+        } catch (\Exception $e) {
+          $this->error($e);
+        }
     }
 
 }
