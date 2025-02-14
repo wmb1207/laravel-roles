@@ -35,7 +35,7 @@ class PermissionsCommand extends Command
 
         $toAssign = array_filter($permissions, fn ($permission) => in_array($permission, config('roles.permissions')));
 
-        $user = User::findOrFail($this->argument('id'));
+        $user = User::findOrFail($this->argument('userid'));
 
         $this->info("Updating user: {$user->id}, settting {join(' ', $toAssign)}");
         $user->roles()->sync($toAssign);
